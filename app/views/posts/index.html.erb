@@ -1,11 +1,19 @@
 <h1>
   Posts:
+  <%= @posts.count %>
+  /
   <%= Post.count %>
 </h1>
 
+<%= link_to_unless_current "10", posts_path(items: 10) %>
+<%= link_to_unless_current "50", posts_path(items: 50) %>
 <%= link_to 'New Post', new_post_path %>
 
 <br>
+
+<%= raw pagy_nav(@pagy) %>
+<%== pagy_nav(@pagy) %>
+<%== pagy_bootstrap_nav(@pagy) %>
 
 <div style="overflow-x:auto;">
   <table>
